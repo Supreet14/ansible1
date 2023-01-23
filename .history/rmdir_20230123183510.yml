@@ -1,0 +1,15 @@
+---
+
+- hosts: webservers
+
+  become: True
+
+  tasks:
+
+   - name: Remove file
+
+     file:
+
+       path: /var/hi.txt
+
+       state: absent
