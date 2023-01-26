@@ -1,4 +1,3 @@
----
 hosts: all
   tasks:
   - name: copy file
@@ -26,4 +25,4 @@ hosts: all
   - name: git
     git: repo=https://github.com/ansible/ansible.git dest=/etc/ansible/checkouts/ansible version=release2.1.1.0
   - name: cli
-   command: ansible --version
+    command: ansible --version
