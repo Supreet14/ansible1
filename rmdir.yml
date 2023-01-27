@@ -5,8 +5,8 @@
     - name: template file onto remote hosts
       template:
         src: /home/ec2-user/templates/my_temp.conf.j2
-        dest: /etc/my_temp.conf
-        remote_src:true
+        dest: /home/webservers/etc/my_temp.conf
+        
         
     
 
