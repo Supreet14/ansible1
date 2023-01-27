@@ -7,7 +7,7 @@
     - name: template file onto remote hosts
       template:
         src: templates/configuration.conf.j2
-        dest: home/awstgremoteweb/configuration.conf
+        dest: /home/awstgremoteweb/configuration.conf
       
        
         
