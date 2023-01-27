@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('rmfile') {
             steps {
-     ansiblePlaybook credentialsId: 'webserver', disableHostKeyChecking: true, installation: 'ansible', inventory: 'dev.inv', playbook: 'rmdir.yml' 
+     ansiblePlaybook credentialsId: 'webserver', disableHostKeyChecking: true, installation: 'ansible', inventory: 'dev.inv', playbook: 'module.yml' 
 }
             }
         }
