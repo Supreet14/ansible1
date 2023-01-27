@@ -1,36 +1,11 @@
 ---
 - hosts: all
   become: true
-  tasks:
-    - name: file
-      file: dest=/home/jenkinserver/test.txt state=touch
-    - name: file
-      file: dest=/home/webservers/test1.txt state=touch
-    - name: copy file
-      copy: 
-        src: /home/jenkinserver/test.txt 
-        dest: /home/webservers/test1.txt
-        remote_src: yes
-    - name: debug
-      debug: msg="This is a debug message"
-    - name: shell
-      shell: /bin/echo "Hello, world!"
-    - name: yum
-      yum: name={{item}} state=present
-      with_items:
-      - ntp
-      - git
-     
-    - name: git
-      git:
-        repo: 'https://github.com/Supreet14/ansible1.git'
-        dest: /home/jenkinserver/test
-    - name: cli
-      command: docker --version
-      
+  tasks: 
     - name: Lineinfile
-      lineinfile:
-        line: Hello world
-        dest: /home/jenkinserver/hlo.txt
-        state: present
+     archive:
+      path: /var/archive/*
+      dest: /var/project.zip
+      format: zipv
+    
 
