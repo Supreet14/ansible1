@@ -25,6 +25,10 @@
         path: /home/ec2-user/*
         dest: /home/ec2-user/test.zip
         format: zip
-    - name: Include
-      include: test.txt
+    - name: Template
+      template:
+        src: /home/ec2-user/templates/my_temp.conf.j2
+        dest: /home/ec2-user
+        remote_src: yes
+      
    
