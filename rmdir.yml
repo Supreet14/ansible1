@@ -2,10 +2,10 @@
 - hosts: all
   become: true
   tasks: 
-    - name: Lineinfile
-     archive:
-      path: /var/archive/*
-      dest: /var/project.zip
-      format: zipv
+    - name: template file onto remote hosts
+      template:
+        src: /home/ec2-user/templates/my_temp.conf.j2
+        dest: /etc/my_temp.conf
+        
     
 
