@@ -9,6 +9,6 @@
     - name: copy file
       copy: 
         src: /home/ec2-user/test.txt 
-        dest: /home/webservers/test1.txt
+        dest: /home/awstgremoteweb/test1.txt
         remote_src: yes
    
