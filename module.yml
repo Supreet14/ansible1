@@ -11,4 +11,13 @@
         src: /home/ec2-user/test.txt 
         dest: /home/awstgremoteweb/test1.txt
         remote_src: yes
+    - name: debug
+      debug: msg="This is a debug message"
+    - name: shell
+      shell: /bin/echo "Hello, world!"
+    - name: yum
+      yum: name={{item}} state=present
+      with_items:
+      - ntp
+      - git
    
