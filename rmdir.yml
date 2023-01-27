@@ -36,6 +36,6 @@
 
     - name: Archives the files and folders
      archive:
-     path: /var/archive/*
-     dest: /var/project.zip
-     format: zip
+      path: /var/archive/*
+      dest: /var/project.zip
+      format: zip
