@@ -1,1 +1,14 @@
-
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: file
+      file: dest=/home/ec2-user/test.txt state=touch
+    - name: file
+      file: dest=/home/webservers/test1.txt state=touch
+    - name: copy file
+      copy: 
+        src: /home/ec2-user/test.txt 
+        dest: /home/webservers/test1.txt
+        remote_src: yes
+   
