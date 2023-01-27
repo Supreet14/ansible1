@@ -7,7 +7,7 @@
     - name: template file onto remote hosts
       template:
         src: templates/configuration.conf.j2
-        dest: etc/configuration.conf
+        dest: home/ec2-user/configuration.conf
       
        
         
