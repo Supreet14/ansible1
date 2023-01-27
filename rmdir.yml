@@ -6,8 +6,8 @@
   tasks: 
     - name: template file onto remote hosts
       template:
-        src: my_temp.conf.j2
-        dest: my_temp.conf
+        src: configuration.conf.j2
+        dest: /etc/configuration.conf
         remote_src: yes
        
         
