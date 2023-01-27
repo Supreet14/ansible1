@@ -4,7 +4,7 @@
   tasks: 
     - name: template file onto remote hosts
       template:
-        src: /home/awstgremoteweb/my_temp.conf.j2
+        src: my_temp.conf.j2
         dest: /home/ec2-user/etc/my_temp.conf
         remote_src: yes
        
