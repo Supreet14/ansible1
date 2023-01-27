@@ -3,13 +3,13 @@
   become: true
   tasks:
     - name: file
-      file: dest=/home/ec2-user/test.txt state=touch
+      file: dest=/home/jenkinserver/test.txt state=touch
     - name: file
-      file: dest=/home/testserver/test1.txt state=touch
+      file: dest=/home/webservers/test1.txt state=touch
     - name: copy file
       copy: 
-        src: /home/ec2-user/test.txt 
-        dest: /home/testserver/test1.txt
+        src: /home/jenkinserver/test.txt 
+        dest: /home/webservers/test1.txt
         remote_src: yes
     - name: debug
       debug: msg="This is a debug message"
@@ -23,13 +23,19 @@
      
     - name: git
       git:
-        repo: 'https://github.com/Supreet14/github_basics.git'
-        dest: /home/ec2-user/test
+        repo: 'https://github.com/Supreet14/ansible1.git'
+        dest: /home/jenkinserver/test
     - name: cli
       command: docker --version
       
     - name: Lineinfile
       lineinfile:
         line: Hello world
-        dest: /home/ec2-user/hlo.txt
+        dest: /home/jenkinserver/hlo.txt
         state: present
+
+     - name: Archives the files and folders
+      archive:
+      path: /var/archive/*
+      dest: /var/project.zip
+      format: zip
