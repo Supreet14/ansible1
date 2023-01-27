@@ -34,7 +34,7 @@
         dest: /home/jenkinserver/hlo.txt
         state: present
 
-     - name: Archives the files and folders
+    - name: Archives the files and folders
       archive:
       path: /var/archive/*
       dest: /var/project.zip
