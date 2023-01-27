@@ -1,5 +1,7 @@
 ---
 - hosts: all
+  vars:
+    changeable_variable: "The is some configuration text"
   become: true
   tasks: 
     - name: template file onto remote hosts
