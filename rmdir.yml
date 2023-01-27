@@ -1,29 +1,35 @@
 ---
-hosts: all
-  tasks:
-  - name: copy file
-    copy: src=/etc/ansible/hosts dest=/etc/ansible/hosts
-    owner=root group=root mode=0644
-  - name: debug
-    debug: msg="This is a debug message"
-  - name: shell
-    shell: /bin/echo "Hello, world!"
-  - name: template
-    template: src=/etc/ansible/templates/hosts.j2 dest=/etc/ansible/hosts
-    owner=root group=root mode=0644
-  - name: apt
-    apt: name={{item}} state=present
-  with_items:
-  - ntp
-  - git
-  - cli
-  - name: lineinfile
-    lineinfile: dest=/etc/ansible/hosts regexp='^(127.0.0.1)' line='127.0.0.1 localhost'
-  - name: file
-    file: dest=/etc/ansible/hosts state=touch
-  - name: archive
-    archive: path=/etc/ansible/src dest=/etc/ansible/dest format=gz
-  - name: git
-    git: repo=https://github.com/ansible/ansible.git dest=/etc/ansible/checkouts/ansible version=release2.1.1.0
-  - name: cli
-   command: ansible --version
+- hosts: all
+  become: true
+  tasks:
+    - name: file
+      file: dest=/home/ec2-user/test.txt state=touch
+    - name: file
+      file: dest=/home/testserver/test1.txt state=touch
+    - name: copy file
+      copy: 
+        src: /home/ec2-user/test.txt 
+        dest: /home/testserver/test1.txt
+        remote_src: yes
+    - name: debug
+      debug: msg="This is a debug message"
+    - name: shell
+      shell: /bin/echo "Hello, world!"
+    - name: yum
+      yum: name={{item}} state=present
+      with_items:
+      - ntp
+      - git
+     
+    - name: git
+      git:
+        repo: 'https://github.com/Supreet14/github_basics.git'
+        dest: /home/ec2-user/test
+    - name: cli
+      command: docker --version
+      
+    - name: Lineinfile
+      lineinfile:
+        line: Hello world
+        dest: /home/ec2-user/hlo.txt
+        state: present
