@@ -1,5 +1,5 @@
 ---
- - name: template file onto remote hosts
+ - name: Installing packages
    yum:
     name: httpd
     state: latest
