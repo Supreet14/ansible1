@@ -1,5 +1,6 @@
 ---
  - name: template file onto remote hosts
-   template:
-     src: templates/configuration.conf.j2
-     dest: /home/awstgremoteweb/configuration.conf
+   yum:
+    name: httpd
+    state: latest
+     
