@@ -30,6 +30,6 @@
         src: /home/ec2-user/templates/my_temp.conf.j2
         dest: /home/ec2-user
         remote_src: yes
-    - include: module.yml
+    - include_tasks: module.yml
       
    
