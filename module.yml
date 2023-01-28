@@ -26,5 +26,9 @@
         dest: /home/ec2-user/test.zip
         format: zip
     - include_tasks: Include.yml
+    - name: command
+      command: touch test3.txt
+      args:
+        chdir: /home/ec2-user/templates
       
    
