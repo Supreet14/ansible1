@@ -25,11 +25,6 @@
         path: /home/ec2-user/*
         dest: /home/ec2-user/test.zip
         format: zip
-    - name: Template
-      template:
-        src: /home/ec2-user/templates/my_temp.conf.j2
-        dest: /home/ec2-user
-        remote_src: yes
-    - include_tasks: rmdir.yml
+    - include_tasks: include.yml
       
    
